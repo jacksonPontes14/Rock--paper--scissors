@@ -1,3 +1,5 @@
+let para = document.querySelector(".paragraph");
+
 let rockButton = document.querySelector("#rock");
 let paperButton = document.querySelector("#paper");
 let scissorsButton = document.querySelector("#scissors");
@@ -5,7 +7,7 @@ let scissorsButton = document.querySelector("#scissors");
 let humanPoints = document.querySelector("#human-points"); 
 let cpuPointes = document.querySelector("#cpu-points");
 
-let humanChoice = "";
+let humanPlay = "";
 
 let humanScore = 0;
 let computerScore = 0;
@@ -13,21 +15,27 @@ let computerScore = 0;
 
 //Human choice
 rockButton.addEventListener("click", () => {
-    humanChoice = "Rock";
-    window.alert(`You choose ${humanChoice}`);
-    return humanChoice
+    humanPlay = "Rock";
+    para.textContent = `You choose ${humanPlay}`;
+    playRound(humanPlay, getComputerChoice());
+    humanPoints.textContent = `Player: ${humanScore}`;
+    cpuPointes.textContent = `CPU: ${computerScore}`;
 });
 
 paperButton.addEventListener("click", () => {
-    humanChoice = "Paper";
-    window.alert(`You choose ${humanChoice}`);
-    return humanChoice
+    humanPlay = "Paper";
+    para.textContent = `You choose ${humanPlay}`;
+    playRound(humanPlay, getComputerChoice());
+    humanPoints.textContent = `Player: ${humanScore}`;
+    cpuPointes.textContent = `CPU: ${computerScore}`;
 });
 
 scissorsButton.addEventListener("click", () => {
-    humanChoice = "Scissors";
-    window.alert(`You choose ${humanChoice}`);
-    return humanChoice
+    humanPlay = "Scissors";
+    para.textContent = `You choose ${humanPlay}`;
+    playRound(humanPlay, getComputerChoice());
+    humanPoints.textContent = `Player: ${humanScore}`;
+    cpuPointes.textContent = `CPU: ${computerScore}`;
 });
 
 
@@ -43,64 +51,30 @@ function getComputerChoice() {
     }
 }
 
-
-
 //Game round
 function playRound(humanChoice, computerChoice) {
     // When you win
     if (humanChoice == "Rock" && computerChoice == "Scissors") {
         humanScore = humanScore + 1;
-        window.alert(`
-        You win! ${humanChoice} beats ${computerChoice}
-        Your pontuation: ${humanScore}
-        Computer pontuation: ${computerScore}`)
+        para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
     }
     else if (humanChoice == "Paper" && computerChoice == "Rock") {
         humanScore = humanScore + 1;
-        window.alert(`
-        You win! ${humanChoice} beats ${computerChoice}
-        Your pontuation: ${humanScore}
-        Computer pontuation: ${computerScore}`)
+        para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
     }
     else if (humanChoice == "Scissors" && computerChoice == "Paper") {
         humanScore = humanScore + 1;
-        window.alert(`
-        You win! ${humanChoice} beats ${computerChoice}
-        Your pontuation: ${humanScore}""
-        Computer pontuation: ${computerScore}`) 
+        para.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
     } 
 
     // Draw
     else if (humanChoice === computerChoice) {
-        window.alert("You both draw!")
+        para.textContent = `You both draw!`;
     }
-
     // When you lose
     else {
         computerScore = computerScore + 1;
-        window.alert(`
-        You lose! ${computerChoice} beats ${humanChoice}
-        Your pontuation: ${humanScore}
-        Computer pontuation: ${computerScore}`)
+        para.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
     }
 }
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
-
-function playGame() {
-    for (let i = 0; i < 5; i++) { 
-    promptAnswer = prompt("Choice one:");
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    } 
-}
-
-playGame();
-
-if (humanScore > computerScore){
-    window.alert("You won the game. Congratulations!")
-} else if  (humanScore <  computerScore){
-    window.alert("You lose the game.")
-}
