@@ -1,24 +1,34 @@
-window.alert("Let's play rock, paper and scissors");
+let rockButton = document.querySelector("#rock");
+let paperButton = document.querySelector("#paper");
+let scissorsButton = document.querySelector("#scissors");
 
-let promptAnswer = prompt("Choice one:");
+let humanPoints = document.querySelector("#human-points"); 
+let cpuPointes = document.querySelector("#cpu-points");
+
+let humanChoice = "";
 
 let humanScore = 0;
 let computerScore = 0;
 
+
 //Human choice
-function getHumanChoice() {
-    lowerCaseAnswer = promptAnswer.toLowerCase();
-    if (lowerCaseAnswer === "rock") {
-    return "Rock";
-    } else if (lowerCaseAnswer === "paper") {
-        return "Paper";
-    } else if (lowerCaseAnswer === "scissors") {
-        return "Scissors";
-    } else {
-        promptAnswer = prompt("You can only choose Rock, Paper or Scissors. Choose again:");
-        return getHumanChoice();
-    }
-}
+rockButton.addEventListener("click", () => {
+    humanChoice = "Rock";
+    window.alert(`You choose ${humanChoice}`);
+    return humanChoice
+});
+
+paperButton.addEventListener("click", () => {
+    humanChoice = "Paper";
+    window.alert(`You choose ${humanChoice}`);
+    return humanChoice
+});
+
+scissorsButton.addEventListener("click", () => {
+    humanChoice = "Scissors";
+    window.alert(`You choose ${humanChoice}`);
+    return humanChoice
+});
 
 
 //Computer choice
@@ -32,6 +42,8 @@ function getComputerChoice() {
         return "Scissors"
     }
 }
+
+
 
 //Game round
 function playRound(humanChoice, computerChoice) {
@@ -54,7 +66,7 @@ function playRound(humanChoice, computerChoice) {
         humanScore = humanScore + 1;
         window.alert(`
         You win! ${humanChoice} beats ${computerChoice}
-        Your pontuation: ${humanScore}
+        Your pontuation: ${humanScore}""
         Computer pontuation: ${computerScore}`) 
     } 
 

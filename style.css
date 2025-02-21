@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(24, 37, 70, 0.3);
+}
+
+.game {
+    width: 90%;
+    height: 70%;
+    max-width: 600px;
+    background-color: #182546;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px black;
+}
+
+.game h1 {
+    font-size: 36px;
+    text-align: center;
+    color: white;
+}
+
+.game p{
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.rps-choices {
+    display: flex;
+    gap: 20px;
+}
+
+
+.rps-choices button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: greenyellow;
+    outline: none;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
+
+.rps-choices button img {
+    width: 60px;
+}
+
+#rock {
+    background-color: #ED557F;
+}
+#paper {
+    background-color: #FFE057;
+}
+#scissors {
+    background-color: #76DBE4;
+}
+
+.pontuation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px 40px;
+    position: relative;
+    top: 60px;
+}
